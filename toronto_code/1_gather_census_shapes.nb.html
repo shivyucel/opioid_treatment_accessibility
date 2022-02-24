@@ -1774,8 +1774,9 @@ summary {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG5cblxubGlicmFyeSh0aWR5dmVyc2UpXG5saWJyYXJ5KGNhbmNlbnN1cylcbmxpYnJhcnkoc3ApXG5saWJyYXJ5KHJhc3RlcilcbmxpYnJhcnkocmdkYWwpXG5saWJyYXJ5KEdJU1Rvb2xzKVxubGlicmFyeShyZ2RhbClcbmxpYnJhcnkoc2YpXG5cbnNldF9hcGlfa2V5KCdDZW5zdXNNYXBwZXJfYTU5YmQ5MjY2NDgzODgyN2UwYTBmNTYxYTU2MDYwMGYnLCBpbnN0YWxsID0gVFJVRSwgb3ZlcndyaXRlID0gVFJVRSlcbm9wdGlvbnMoY2FuY2Vuc3VzLmNhY2hlX3BhdGggPSBcIi9Vc2Vycy9zaGl2eXVjZWwvRG9jdW1lbnRzL3Byb2plY3RzLm5vc3luYy9SIExlYXJuaW5nL1RyYW5zcG9ydF9BbmFseXNlcy9jYWNoZVwiKVxuXG5cbmBgYCJ9 -->
-<pre class="r"><code>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuXG5cblxubGlicmFyeSh0aWR5dmVyc2UpXG5saWJyYXJ5KGNhbmNlbnN1cylcbmxpYnJhcnkoc3ApXG5saWJyYXJ5KHJhc3RlcilcbmxpYnJhcnkocmdkYWwpXG5saWJyYXJ5KEdJU1Rvb2xzKVxubGlicmFyeShyZ2RhbClcbmxpYnJhcnkoc2YpXG5cbnNldF9hcGlfa2V5KCdDZW5zdXNNYXBwZXJfYTU5YmQ5MjY2NDgzODgyN2UwYTBmNTYxYTU2MDYwMGYnLCBpbnN0YWxsID0gVFJVRSwgb3ZlcndyaXRlID0gVFJVRSlcbm9wdGlvbnMoY2FuY2Vuc3VzLmNhY2hlX3BhdGggPSBcXC9Vc2Vycy9zaGl2eXVjZWwvRG9jdW1lbnRzL3Byb2plY3RzLm5vc3luYy9SIExlYXJuaW5nL1RyYW5zcG9ydF9BbmFseXNlcy9jYWNoZVxcKVxuXG5cbmBgYFxuYGBgIn0= -->
+<pre class="r"><code>```r
+
 
 
 library(tidyverse)
@@ -1788,102 +1789,379 @@ library(rgdal)
 library(sf)
 
 set_api_key(&#39;CensusMapper_a59bd92664838827e0a0f561a560600f&#39;, install = TRUE, overwrite = TRUE)
-options(cancensus.cache_path = &quot;/Users/shivyucel/Documents/projects.nosync/R Learning/Transport_Analyses/cache&quot;)
+options(cancensus.cache_path = \/Users/shivyucel/Documents/projects.nosync/R Learning/Transport_Analyses/cache\)
 </code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>#1. Access DA census shapes across Toronto and Vancouver Toronto has region code 35535, Vancouver has region code 59933</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlzdF9jZW5zdXNfcmVnaW9ucygnQ0ExNicpICU+JSBcbiAgZmlsdGVyKGxldmVsID09IFwiQ01BXCIsIG5hbWUgJWluJSBjKFwiVmFuY291dmVyXCIsXCJUb3JvbnRvXCIpKVxuYGBgIn0= -->
-<pre class="r"><code>list_census_regions(&#39;CA16&#39;) %&gt;% 
-  filter(level == &quot;CMA&quot;, name %in% c(&quot;Vancouver&quot;,&quot;Toronto&quot;))</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<div id="get-toronto-da-shapes" class="section level3">
-<h3>Get Toronto DA shapes</h3>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG50b3JvbnRvX0RBIDwtIGdldF9jZW5zdXMoZGF0YXNldD0nQ0ExNicsIHJlZ2lvbnM9bGlzdChDTUE9XCIzNTUzNVwiKSxcbmxldmVsPSdEQScsIHVzZV9jYWNoZSA9IEZBTFNFLCBnZW9fZm9ybWF0ID0gJ3NmJywgcXVpZXQgPSBUUlVFKVxuXG5gYGAifQ== -->
-<pre class="r"><code>
-toronto_DA &lt;- get_census(dataset=&#39;CA16&#39;, regions=list(CMA=&quot;35535&quot;),
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+#1. Access DA census shapes across Toronto and Vancouver 
+Toronto has region code 35535, Vancouver has region code 59933
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxubGlzdF9jZW5zdXNfcmVnaW9ucygnQ0ExNicpICU+JSBcbiAgZmlsdGVyKGxldmVsID09IFxcQ01BXFwsIG5hbWUgJWluJSBjKFxcVmFuY291dmVyXFwsXFxUb3JvbnRvXFwpKVxuYGBgXG5gYGAifQ== --&gt;
+
+```r
+```r
+list_census_regions(&#39;CA16&#39;) %&gt;% 
+  filter(level == \CMA\, name %in% c(\Vancouver\,\Toronto\))</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+### Get Toronto DA shapes
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuXG50b3JvbnRvX0RBIDwtIGdldF9jZW5zdXMoZGF0YXNldD0nQ0ExNicsIHJlZ2lvbnM9bGlzdChDTUE9XFwzNTUzNVxcKSxcbmxldmVsPSdEQScsIHVzZV9jYWNoZSA9IEZBTFNFLCBnZW9fZm9ybWF0ID0gJ3NmJywgcXVpZXQgPSBUUlVFKVxuXG5gYGBcbmBgYCJ9 --&gt;
+
+```r
+```r
+
+toronto_DA &lt;- get_census(dataset=&#39;CA16&#39;, regions=list(CMA=\35535\),
 level=&#39;DA&#39;, use_cache = FALSE, geo_format = &#39;sf&#39;, quiet = TRUE)
 </code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="get-vancouver-shape" class="section level3">
-<h3>Get Vancouver Shape</h3>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG52YW5jb3V2ZXJfREEgPC0gZ2V0X2NlbnN1cyhkYXRhc2V0PSdDQTE2JywgcmVnaW9ucz1saXN0KENNQT1cIjU5OTMzXCIpLFxubGV2ZWw9J0RBJywgdXNlX2NhY2hlID0gRkFMU0UsIGdlb19mb3JtYXQgPSAnc2YnLCBxdWlldCA9IFRSVUUpXG5cbmBgYCJ9 -->
-<pre class="r"><code>
-vancouver_DA &lt;- get_census(dataset=&#39;CA16&#39;, regions=list(CMA=&quot;59933&quot;),
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+### Get Vancouver Shape
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuXG52YW5jb3V2ZXJfREEgPC0gZ2V0X2NlbnN1cyhkYXRhc2V0PSdDQTE2JywgcmVnaW9ucz1saXN0KENNQT1cXDU5OTMzXFwpLFxubGV2ZWw9J0RBJywgdXNlX2NhY2hlID0gRkFMU0UsIGdlb19mb3JtYXQgPSAnc2YnLCBxdWlldCA9IFRSVUUpXG5cbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+
+vancouver_DA &lt;- get_census(dataset=&#39;CA16&#39;, regions=list(CMA=\59933\),
 level=&#39;DA&#39;, use_cache = FALSE, geo_format = &#39;sf&#39;, quiet = TRUE)
 </code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>#1. Access CT census shapes across Toronto and Vancouver Toronto has region code 35535, Vancouver has region code 59933</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlzdF9jZW5zdXNfcmVnaW9ucygnQ0ExNicpICU+JSBcbiAgZmlsdGVyKGxldmVsID09IFwiQ01BXCIsIG5hbWUgJWluJSBjKFwiVmFuY291dmVyXCIsXCJUb3JvbnRvXCIpKVxuYGBgIn0= -->
-<pre class="r"><code>list_census_regions(&#39;CA16&#39;) %&gt;% 
-  filter(level == &quot;CMA&quot;, name %in% c(&quot;Vancouver&quot;,&quot;Toronto&quot;))</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="get-toronto-ct-shapes" class="section level3">
-<h3>Get Toronto CT shapes</h3>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG50b3JvbnRvX0NUIDwtIGdldF9jZW5zdXMoZGF0YXNldD0nQ0ExNicsIHJlZ2lvbnM9bGlzdChDTUE9XCIzNTUzNVwiKSxcbmxldmVsPSdDVCcsIHVzZV9jYWNoZSA9IEZBTFNFLCBnZW9fZm9ybWF0ID0gJ3NmJywgcXVpZXQgPSBUUlVFKVxuXG5gYGAifQ== -->
-<pre class="r"><code>
-toronto_CT &lt;- get_census(dataset=&#39;CA16&#39;, regions=list(CMA=&quot;35535&quot;),
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+
+#1. Access CT census shapes across Toronto and Vancouver 
+Toronto has region code 35535, Vancouver has region code 59933
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxubGlzdF9jZW5zdXNfcmVnaW9ucygnQ0ExNicpICU+JSBcbiAgZmlsdGVyKGxldmVsID09IFxcQ01BXFwsIG5hbWUgJWluJSBjKFxcVmFuY291dmVyXFwsXFxUb3JvbnRvXFwpKVxuYGBgXG5gYGAifQ== --&gt;
+
+```r
+```r
+list_census_regions(&#39;CA16&#39;) %&gt;% 
+  filter(level == \CMA\, name %in% c(\Vancouver\,\Toronto\))</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+### Get Toronto CT shapes
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuXG50b3JvbnRvX0NUIDwtIGdldF9jZW5zdXMoZGF0YXNldD0nQ0ExNicsIHJlZ2lvbnM9bGlzdChDTUE9XFwzNTUzNVxcKSxcbmxldmVsPSdDVCcsIHVzZV9jYWNoZSA9IEZBTFNFLCBnZW9fZm9ybWF0ID0gJ3NmJywgcXVpZXQgPSBUUlVFKVxuXG5gYGBcbmBgYCJ9 --&gt;
+
+```r
+```r
+
+toronto_CT &lt;- get_census(dataset=&#39;CA16&#39;, regions=list(CMA=\35535\),
 level=&#39;CT&#39;, use_cache = FALSE, geo_format = &#39;sf&#39;, quiet = TRUE)
+</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc3Rfd3JpdGUodG9yb250b19DVCwgXFwvVXNlcnMvc2hpdnl1Y2VsL0RvY3VtZW50cy9wcm9qZWN0cy5ub3N5bmMvb3Bpb2lkX2FjY2Vzc2liaWxpdHkvcHJvamVjdC9wcm9qZWN0X2Rpci9kYXRhL3Rvcm9udG9fZGF0YS90b3JvbnRvX3NoYXBlcy9DVF9nZW9tZXRyaWVzL0NUX3NocC5zaHBcXClcbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+st_write(toronto_CT, \/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/project/project_dir/data/toronto_data/toronto_shapes/CT_geometries/CT_shp.shp\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-output-begin eyJkYXRhIjoiRmllbGQgbmFtZXMgYWJicmV2aWF0ZWQgZm9yIEVTUkkgU2hhcGVmaWxlIGRyaXZlclxuV3JpdGluZyBsYXllciBgQ1QnIHRvIGRhdGEgc291cmNlIFxuICBgL1VzZXJzL3NoaXZ5dWNlbC9Eb2N1bWVudHMvcHJvamVjdHMubm9zeW5jL29waW9pZF9hY2Nlc3NpYmlsaXR5L3Byb2plY3QvcHJvamVjdF9kaXIvZGF0YS90b3JvbnRvX2RhdGEvdG9yb250b19zaGFwZXMvQ1RfZ2VvbWV0cmllcy9DVF9zaHAuc2hwJyB1c2luZyBkcml2ZXIgYEVTUkkgU2hhcGVmaWxlJ1xuV3JpdGluZyAxMTUxIGZlYXR1cmVzIHdpdGggMTEgZmllbGRzIGFuZCBnZW9tZXRyeSB0eXBlIE11bHRpIFBvbHlnb24uXG4ifQ== --&gt;
+</code></pre>
+<p>Field names abbreviated for ESRI Shapefile driver Writing layer <code>CT&#39; to data source</code>/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/project/project_dir/data/toronto_data/toronto_shapes/CT_geometries/CT_shp.shp’ using driver `ESRI Shapefile’ Writing 1151 features with 11 fields and geometry type Multi Polygon.</p>
+<pre><code>
+
+
+&lt;!-- rnb-output-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+### Get Vancouver CT Shape
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuXG52YW5jb3V2ZXJfQ1QgPC0gZ2V0X2NlbnN1cyhkYXRhc2V0PSdDQTE2JywgcmVnaW9ucz1saXN0KENNQT1cXDU5OTMzXFwpLFxubGV2ZWw9J0NUJywgdXNlX2NhY2hlID0gRkFMU0UsIGdlb19mb3JtYXQgPSAnc2YnLCBxdWlldCA9IFRSVUUpXG5cbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+
+vancouver_CT &lt;- get_census(dataset=&#39;CA16&#39;, regions=list(CMA=\59933\),
+level=&#39;CT&#39;, use_cache = FALSE, geo_format = &#39;sf&#39;, quiet = TRUE)
+</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc3Rfd3JpdGUodG9yb250b19DVCwgXFwvVXNlcnMvc2hpdnl1Y2VsL0RvY3VtZW50cy9wcm9qZWN0cy5ub3N5bmMvb3Bpb2lkX2FjY2Vzc2liaWxpdHkvcHJvamVjdC9wcm9qZWN0X2Rpci9kYXRhL3Rvcm9udG9fZGF0YS90b3JvbnRvX3NoYXBlcy9DVF9nZW9tZXRyaWVzL0NUX3NocC5zaHBcXClcbmBgYFxuYGBgIn0= --&gt;
+
+```r
+```r
+st_write(toronto_CT, \/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/project/project_dir/data/toronto_data/toronto_shapes/CT_geometries/CT_shp.shp\)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== --&gt;
+
+```r
+library(tidyverse)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUmVnaXN0ZXJlZCBTMyBtZXRob2RzIG92ZXJ3cml0dGVuIGJ5ICdkYnBseXInOlxuICBtZXRob2QgICAgICAgICBmcm9tXG4gIHByaW50LnRibF9sYXp5ICAgICBcbiAgcHJpbnQudGJsX3NxbCAgICAgIFxu4pSA4pSAIEF0dGFjaGluZyBwYWNrYWdlcyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAgdGlkeXZlcnNlIDEuMy4wIOKUgOKUgFxu4pyTIGdncGxvdDIgMy4zLjMgICAgIOKckyBwdXJyciAgIDAuMy40XG7inJMgdGliYmxlICAzLjAuNSAgICAg4pyTIGRwbHlyICAgMS4wLjNcbuKckyB0aWR5ciAgIDEuMS4yICAgICDinJMgc3RyaW5nciAxLjQuMFxu4pyTIHJlYWRyICAgMS40LjAgICAgIOKckyBmb3JjYXRzIDAuNS4wXG7ilIDilIAgQ29uZmxpY3RzIOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgCB0aWR5dmVyc2VfY29uZmxpY3RzKCkg4pSA4pSAXG54IGRwbHlyOjpmaWx0ZXIoKSBtYXNrcyBzdGF0czo6ZmlsdGVyKClcbnggZHBseXI6OmxhZygpICAgIG1hc2tzIHN0YXRzOjpsYWcoKVxuIn0= -->
+<pre><code>Registered S3 methods overwritten by &#39;dbplyr&#39;:
+  method         from
+  print.tbl_lazy     
+  print.tbl_sql      
+── Attaching packages ─────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──
+✓ ggplot2 3.3.3     ✓ purrr   0.3.4
+✓ tibble  3.0.5     ✓ dplyr   1.0.3
+✓ tidyr   1.1.2     ✓ stringr 1.4.0
+✓ readr   1.4.0     ✓ forcats 0.5.0
+── Conflicts ────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShjYW5jZW5zdXMpXG5gYGAifQ== -->
+<pre class="r"><code>library(cancensus)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiQ2Vuc3VzIGRhdGEgaXMgY3VycmVudGx5IHN0b3JlZCB0ZW1wb3JhcmlseS5cblxuIEluIG9yZGVyIHRvIHNwZWVkIHVwIHBlcmZvcm1hbmNlLCByZWR1Y2UgQVBJIHF1b3RhIHVzYWdlLCBhbmQgcmVkdWNlIHVubmVjZXNzYXJ5IG5ldHdvcmsgY2FsbHMsIHBsZWFzZSBzZXQgdXAgYSBwZXJzaXN0ZW50IGNhY2hlIGRpcmVjdG9yeSBieSBzZXR0aW5nIHRoZSBlbnZpcm9ubWVudCB2YXJpYWJsZSBDTV9DQUNIRV9QQVRIPSAnPHBhdGggdG8gY2FuY2Vuc3VzIGNhY2hlIGRpcmVjdG9yeT4nIG9yICBzZXR0aW5nIG9wdGlvbnMoY2FuY2Vuc3VzLmNhY2hlX3BhdGggPSAnPHBhdGggdG8gY2FuY2Vuc3VzIGNhY2hlIGRpcmVjdG9yeT4nKVxuXG4gWW91IG1heSBhZGQgdGhpcyBlbnZpcm9ubWVudCB2YXJpYW5ibGUgdG8geW91ciAuUmVudmlyb24gb3IgYWRkIHRoaXMgb3B0aW9uLCB0b2dldGhlciB3aXRoIHlvdXIgQVBJIGtleSwgdG8geW91ciAuUnByb2ZpbGUuXG4ifQ== -->
+<pre><code>Census data is currently stored temporarily.
+
+ In order to speed up performance, reduce API quota usage, and reduce unnecessary network calls, please set up a persistent cache directory by setting the environment variable CM_CACHE_PATH= &#39;&lt;path to cancensus cache directory&gt;&#39; or  setting options(cancensus.cache_path = &#39;&lt;path to cancensus cache directory&gt;&#39;)
+
+ You may add this environment varianble to your .Renviron or add this option, together with your API key, to your .Rprofile.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShzcClcbmxpYnJhcnkocmFzdGVyKVxuYGBgIn0= -->
+<pre class="r"><code>library(sp)
+library(raster)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5BdHRhY2hpbmcgcGFja2FnZTog4oCYcmFzdGVy4oCZXG5cblRoZSBmb2xsb3dpbmcgb2JqZWN0IGlzIG1hc2tlZCBmcm9tIOKAmHBhY2thZ2U6ZHBseXLigJk6XG5cbiAgICBzZWxlY3RcblxuVGhlIGZvbGxvd2luZyBvYmplY3QgaXMgbWFza2VkIGZyb20g4oCYcGFja2FnZTp0aWR5cuKAmTpcblxuICAgIGV4dHJhY3RcbiJ9 -->
+<pre><code>
+Attaching package: ‘raster’
+
+The following object is masked from ‘package:dplyr’:
+
+    select
+
+The following object is masked from ‘package:tidyr’:
+
+    extract</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZ2RhbClcbmBgYCJ9 -->
+<pre class="r"><code>library(rgdal)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUGxlYXNlIG5vdGUgdGhhdCByZ2RhbCB3aWxsIGJlIHJldGlyZWQgYnkgdGhlIGVuZCBvZiAyMDIzLFxucGxhbiB0cmFuc2l0aW9uIHRvIHNmL3N0YXJzL3RlcnJhIGZ1bmN0aW9ucyB1c2luZyBHREFMIGFuZCBQUk9KXG5hdCB5b3VyIGVhcmxpZXN0IGNvbnZlbmllbmNlLlxuXG5yZ2RhbDogdmVyc2lvbjogMS41LTI4LCAoU1ZOIHJldmlzaW9uIDExNTgpXG5HZW9zcGF0aWFsIERhdGEgQWJzdHJhY3Rpb24gTGlicmFyeSBleHRlbnNpb25zIHRvIFIgc3VjY2Vzc2Z1bGx5IGxvYWRlZFxuTG9hZGVkIEdEQUwgcnVudGltZTogR0RBTCAzLjIuMSwgcmVsZWFzZWQgMjAyMC8xMi8yOVxuUGF0aCB0byBHREFMIHNoYXJlZCBmaWxlczogL0xpYnJhcnkvRnJhbWV3b3Jrcy9SLmZyYW1ld29yay9WZXJzaW9ucy80LjAvUmVzb3VyY2VzL2xpYnJhcnkvcmdkYWwvZ2RhbFxuR0RBTCBiaW5hcnkgYnVpbHQgd2l0aCBHRU9TOiBUUlVFIFxuTG9hZGVkIFBST0ogcnVudGltZTogUmVsLiA3LjIuMSwgSmFudWFyeSAxc3QsIDIwMjEsIFtQSl9WRVJTSU9OOiA3MjFdXG5QYXRoIHRvIFBST0ogc2hhcmVkIGZpbGVzOiAvTGlicmFyeS9GcmFtZXdvcmtzL1IuZnJhbWV3b3JrL1ZlcnNpb25zLzQuMC9SZXNvdXJjZXMvbGlicmFyeS9yZ2RhbC9wcm9qXG5QUk9KIENETiBlbmFibGVkOiBGQUxTRVxuTGlua2luZyB0byBzcCB2ZXJzaW9uOjEuNC02XG5UbyBtdXRlIHdhcm5pbmdzIG9mIHBvc3NpYmxlIEdEQUwvT1NSIGV4cG9ydFRvUHJvajQoKSBkZWdyYWRhdGlvbixcbnVzZSBvcHRpb25zKFwicmdkYWxfc2hvd19leHBvcnRUb1Byb2o0X3dhcm5pbmdzXCI9XCJub25lXCIpIGJlZm9yZSBsb2FkaW5nIHNwIG9yIHJnZGFsLlxuT3ZlcndyaXR0ZW4gUFJPSl9MSUIgd2FzIC9MaWJyYXJ5L0ZyYW1ld29ya3MvUi5mcmFtZXdvcmsvVmVyc2lvbnMvNC4wL1Jlc291cmNlcy9saWJyYXJ5L3JnZGFsL3Byb2pcbiJ9 -->
+<pre><code>Please note that rgdal will be retired by the end of 2023,
+plan transition to sf/stars/terra functions using GDAL and PROJ
+at your earliest convenience.
+
+rgdal: version: 1.5-28, (SVN revision 1158)
+Geospatial Data Abstraction Library extensions to R successfully loaded
+Loaded GDAL runtime: GDAL 3.2.1, released 2020/12/29
+Path to GDAL shared files: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/gdal
+GDAL binary built with GEOS: TRUE 
+Loaded PROJ runtime: Rel. 7.2.1, January 1st, 2021, [PJ_VERSION: 721]
+Path to PROJ shared files: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/proj
+PROJ CDN enabled: FALSE
+Linking to sp version:1.4-6
+To mute warnings of possible GDAL/OSR exportToProj4() degradation,
+use options(&quot;rgdal_show_exportToProj4_warnings&quot;=&quot;none&quot;) before loading sp or rgdal.
+Overwritten PROJ_LIB was /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/proj</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShHSVNUb29scylcbmBgYCJ9 -->
+<pre class="r"><code>library(GISTools)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTG9hZGluZyByZXF1aXJlZCBwYWNrYWdlOiBtYXB0b29sc1xuQ2hlY2tpbmcgcmdlb3MgYXZhaWxhYmlsaXR5OiBUUlVFXG5QbGVhc2Ugbm90ZSB0aGF0ICdtYXB0b29scycgd2lsbCBiZSByZXRpcmVkIGJ5IHRoZSBlbmQgb2YgMjAyMyxcbnBsYW4gdHJhbnNpdGlvbiBhdCB5b3VyIGVhcmxpZXN0IGNvbnZlbmllbmNlO1xuc29tZSBmdW5jdGlvbmFsaXR5IHdpbGwgYmUgbW92ZWQgdG8gJ3NwJy5cbkxvYWRpbmcgcmVxdWlyZWQgcGFja2FnZTogUkNvbG9yQnJld2VyXG5Mb2FkaW5nIHJlcXVpcmVkIHBhY2thZ2U6IE1BU1NcblxuQXR0YWNoaW5nIHBhY2thZ2U6IOKAmE1BU1PigJlcblxuVGhlIGZvbGxvd2luZyBvYmplY3RzIGFyZSBtYXNrZWQgZnJvbSDigJhwYWNrYWdlOnJhc3RlcuKAmTpcblxuICAgIGFyZWEsIHNlbGVjdFxuXG5UaGUgZm9sbG93aW5nIG9iamVjdCBpcyBtYXNrZWQgZnJvbSDigJhwYWNrYWdlOmRwbHly4oCZOlxuXG4gICAgc2VsZWN0XG5cbkxvYWRpbmcgcmVxdWlyZWQgcGFja2FnZTogcmdlb3NcbnJnZW9zIHZlcnNpb246IDAuNS05LCAoU1ZOIHJldmlzaW9uIDY4NClcbiBHRU9TIHJ1bnRpbWUgdmVyc2lvbjogMy44LjEtQ0FQSS0xLjEzLjMgXG4gUGxlYXNlIG5vdGUgdGhhdCByZ2VvcyB3aWxsIGJlIHJldGlyZWQgYnkgdGhlIGVuZCBvZiAyMDIzLFxucGxhbiB0cmFuc2l0aW9uIHRvIHNmIGZ1bmN0aW9ucyB1c2luZyBHRU9TIGF0IHlvdXIgZWFybGllc3QgY29udmVuaWVuY2UuXG4gTGlua2luZyB0byBzcCB2ZXJzaW9uOiAxLjQtNiBcbiBQb2x5Z29uIGNoZWNraW5nOiBUUlVFIFxuIn0= -->
+<pre><code>Loading required package: maptools
+Checking rgeos availability: TRUE
+Please note that &#39;maptools&#39; will be retired by the end of 2023,
+plan transition at your earliest convenience;
+some functionality will be moved to &#39;sp&#39;.
+Loading required package: RColorBrewer
+Loading required package: MASS
+
+Attaching package: ‘MASS’
+
+The following objects are masked from ‘package:raster’:
+
+    area, select
+
+The following object is masked from ‘package:dplyr’:
+
+    select
+
+Loading required package: rgeos
+rgeos version: 0.5-9, (SVN revision 684)
+ GEOS runtime version: 3.8.1-CAPI-1.13.3 
+ Please note that rgeos will be retired by the end of 2023,
+plan transition to sf functions using GEOS at your earliest convenience.
+ Linking to sp version: 1.4-6 
+ Polygon checking: TRUE </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZ2RhbClcbmxpYnJhcnkoc2YpXG5gYGAifQ== -->
+<pre class="r"><code>library(rgdal)
+library(sf)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTGlua2luZyB0byBHRU9TIDMuOC4xLCBHREFMIDMuMi4xLCBQUk9KIDcuMi4xOyBzZl91c2VfczIoKSBpcyBUUlVFXG4ifQ== -->
+<pre><code>Linking to GEOS 3.8.1, GDAL 3.2.1, PROJ 7.2.1; sf_use_s2() is TRUE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2V0X2FwaV9rZXkoJ0NlbnN1c01hcHBlcl9hNTliZDkyNjY0ODM4ODI3ZTBhMGY1NjFhNTYwNjAwZicsIGluc3RhbGwgPSBUUlVFLCBvdmVyd3JpdGUgPSBUUlVFKVxuYGBgIn0= -->
+<pre class="r"><code>set_api_key(&#39;CensusMapper_a59bd92664838827e0a0f561a560600f&#39;, install = TRUE, overwrite = TRUE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiQWRkaW5nIGtleSB0byB5b3VyIC5SZW52aXJvbiBmaWxlLiBZb3VyIG9yaWdpbmFsIC5SZW52aXJvbiB3aWxsIGJlIGJhY2tlZCB1cCBhbmQgc3RvcmVkIGluIHlvdXIgUiBIT01FIGRpcmVjdG9yeSBpZiBuZWVkZWQuXG5Zb3VyIEFQSSBrZXkgaGFzIGJlZW4gc3RvcmVkIGluIHlvdXIgLlJlbnZpcm9uIGFuZCBjYW4gYmUgYWNjZXNzZWQgYnkgU3lzLmdldGVudihcIkNNX0FQSV9LRVlcIikuIFxuVG8gdXNlIG5vdywgcmVzdGFydCBSIG9yIHJ1biBgcmVhZFJlbnZpcm9uKFwifi8uUmVudmlyb25cIilgXG4ifQ== -->
+<pre><code>Adding key to your .Renviron file. Your original .Renviron will be backed up and stored in your R HOME directory if needed.
+Your API key has been stored in your .Renviron and can be accessed by Sys.getenv(&quot;CM_API_KEY&quot;). 
+To use now, restart R or run `readRenviron(&quot;~/.Renviron&quot;)`</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxub3B0aW9ucyhjYW5jZW5zdXMuY2FjaGVfcGF0aCA9IFwiL1VzZXJzL3NoaXZ5dWNlbC9Eb2N1bWVudHMvcHJvamVjdHMubm9zeW5jL1IgTGVhcm5pbmcvVHJhbnNwb3J0X0FuYWx5c2VzL2NhY2hlXCIpXG5cblxuYGBgIn0= -->
+<pre class="r"><code>options(cancensus.cache_path = &quot;/Users/shivyucel/Documents/projects.nosync/R Learning/Transport_Analyses/cache&quot;)
 </code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3Rfd3JpdGUodG9yb250b19DVCwgXCIvVXNlcnMvc2hpdnl1Y2VsL0RvY3VtZW50cy9wcm9qZWN0cy5ub3N5bmMvb3Bpb2lkX2FjY2Vzc2liaWxpdHkvcHJvamVjdC9wcm9qZWN0X2Rpci9kYXRhL3Rvcm9udG9fZGF0YS90b3JvbnRvX3NoYXBlcy9DVF9nZW9tZXRyaWVzL0NUX3NocC5zaHBcIilcbmBgYCJ9 -->
-<pre class="r"><code>st_write(toronto_CT, &quot;/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/project/project_dir/data/toronto_data/toronto_shapes/CT_geometries/CT_shp.shp&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRmllbGQgbmFtZXMgYWJicmV2aWF0ZWQgZm9yIEVTUkkgU2hhcGVmaWxlIGRyaXZlclxuIn0= -->
-<pre><code>Field names abbreviated for ESRI Shapefile driver</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiV3JpdGluZyBsYXllciBgQ1QnIHRvIGRhdGEgc291cmNlIFxuICBgL1VzZXJzL3NoaXZ5dWNlbC9Eb2N1bWVudHMvcHJvamVjdHMubm9zeW5jL29waW9pZF9hY2Nlc3NpYmlsaXR5L3Byb2plY3QvcHJvamVjdF9kaXIvZGF0YS90b3JvbnRvX2RhdGEvdG9yb250b19zaGFwZXMvQ1RfZ2VvbWV0cmllcy9DVF9zaHAuc2hwJyB1c2luZyBkcml2ZXIgYEVTUkkgU2hhcGVmaWxlJ1xuV3JpdGluZyAxMTUxIGZlYXR1cmVzIHdpdGggMTEgZmllbGRzIGFuZCBnZW9tZXRyeSB0eXBlIE11bHRpIFBvbHlnb24uXG4ifQ== -->
-<pre><code>Writing layer `CT&#39; to data source 
-  `/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/project/project_dir/data/toronto_data/toronto_shapes/CT_geometries/CT_shp.shp&#39; using driver `ESRI Shapefile&#39;
-Writing 1151 features with 11 fields and geometry type Multi Polygon.</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="get-vancouver-ct-shape" class="section level3">
-<h3>Get Vancouver CT Shape</h3>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG52YW5jb3V2ZXJfQ1QgPC0gZ2V0X2NlbnN1cyhkYXRhc2V0PSdDQTE2JywgcmVnaW9ucz1saXN0KENNQT1cIjU5OTMzXCIpLFxubGV2ZWw9J0NUJywgdXNlX2NhY2hlID0gRkFMU0UsIGdlb19mb3JtYXQgPSAnc2YnLCBxdWlldCA9IFRSVUUpXG5cbmBgYCJ9 -->
-<pre class="r"><code>
-vancouver_CT &lt;- get_census(dataset=&#39;CA16&#39;, regions=list(CMA=&quot;59933&quot;),
-level=&#39;CT&#39;, use_cache = FALSE, geo_format = &#39;sf&#39;, quiet = TRUE)
-</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3Rfd3JpdGUodG9yb250b19DVCwgXCIvVXNlcnMvc2hpdnl1Y2VsL0RvY3VtZW50cy9wcm9qZWN0cy5ub3N5bmMvb3Bpb2lkX2FjY2Vzc2liaWxpdHkvcHJvamVjdC9wcm9qZWN0X2Rpci9kYXRhL3Rvcm9udG9fZGF0YS90b3JvbnRvX3NoYXBlcy9DVF9nZW9tZXRyaWVzL0NUX3NocC5zaHBcIilcbmBgYCJ9 -->
-<pre class="r"><code>st_write(toronto_CT, &quot;/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/project/project_dir/data/toronto_data/toronto_shapes/CT_geometries/CT_shp.shp&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
+<p>#1. Access income variables for Toronto</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmFyaWFibGVzIDwtIGxpc3RfY2Vuc3VzX3ZlY3RvcnMoXCJDQTE2XCIpXG5gYGAifQ== -->
@@ -1893,28 +2171,124 @@ level=&#39;CT&#39;, use_cache = FALSE, geo_format = &#39;sf&#39;, quiet = TRUE)
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBSZXR1cm5zIGEgZGF0YSBmcmFtZSB3aXRoIGRhdGEgb25seVxuY2Vuc3VzX2RhdGEgPC0gZ2V0X2NlbnN1cyhkYXRhc2V0PSdDQTE2JywgcmVnaW9ucz1saXN0KENNQT1cIjM1NTM1XCIpLFxuICAgICAgICAgICAgICAgICAgICAgICAgICB2ZWN0b3JzPWMoXCJ2X0NBMTZfMzgzMVwiLFwidl9DQTE2XzQwMVwiLFwidl9DQTE2XzIyMTNcIiksXG4gICAgICAgICAgICAgICAgICAgICAgICAgIGxldmVsPSdEQScsIHVzZV9jYWNoZSA9IEZBTFNFKVxuXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBSZXR1cm5zIGEgZGF0YSBmcmFtZSB3aXRoIGRhdGEgb25seVxuY2Vuc3VzX2RhdGEgPC0gZ2V0X2NlbnN1cyhkYXRhc2V0PSdDQTE2JywgcmVnaW9ucz1saXN0KENNQT1cIjM1NTM1XCIpLFxuICAgICAgICAgICAgICAgICAgICAgICAgICB2ZWN0b3JzPWMoXCJ2X0NBMTZfNDk4NlwiLFwidl9DQTE2XzQwMVwiKSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgbGV2ZWw9J0RBJywgdXNlX2NhY2hlID0gRkFMU0UpXG5gYGAifQ== -->
 <pre class="r"><code># Returns a data frame with data only
 census_data &lt;- get_census(dataset=&#39;CA16&#39;, regions=list(CMA=&quot;35535&quot;),
-                          vectors=c(&quot;v_CA16_3831&quot;,&quot;v_CA16_401&quot;,&quot;v_CA16_2213&quot;),
-                          level=&#39;DA&#39;, use_cache = FALSE)
-</code></pre>
+                          vectors=c(&quot;v_CA16_4986&quot;,&quot;v_CA16_401&quot;),
+                          level=&#39;DA&#39;, use_cache = FALSE)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUXVlcnlpbmcgQ2Vuc3VzTWFwcGVyIEFQSS4uLlxuIn0= -->
+<pre><code>Querying CensusMapper API...</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5Eb3dubG9hZGluZzogMy42IGtCICAgICBcbkRvd25sb2FkaW5nOiAzLjYga0IgICAgIFxuRG93bmxvYWRpbmc6IDcuNiBrQiAgICAgXG5Eb3dubG9hZGluZzogNy42IGtCICAgICBcbkRvd25sb2FkaW5nOiAxMiBrQiAgICAgXG5Eb3dubG9hZGluZzogMTIga0IgICAgIFxuRG93bmxvYWRpbmc6IDE2IGtCICAgICBcbkRvd25sb2FkaW5nOiAxNiBrQiAgICAgXG5Eb3dubG9hZGluZzogMjAga0IgICAgIFxuRG93bmxvYWRpbmc6IDIwIGtCICAgICBcbkRvd25sb2FkaW5nOiAyNCBrQiAgICAgXG5Eb3dubG9hZGluZzogMjQga0IgICAgIFxuRG93bmxvYWRpbmc6IDI4IGtCICAgICBcbkRvd25sb2FkaW5nOiAyOCBrQiAgICAgXG5Eb3dubG9hZGluZzogMzIga0IgICAgIFxuRG93bmxvYWRpbmc6IDMyIGtCICAgICBcbkRvd25sb2FkaW5nOiAzNiBrQiAgICAgXG5Eb3dubG9hZGluZzogMzYga0IgICAgIFxuRG93bmxvYWRpbmc6IDM3IGtCICAgICBcbkRvd25sb2FkaW5nOiAzNyBrQiAgICAgXG5Eb3dubG9hZGluZzogNDAga0IgICAgIFxuRG93bmxvYWRpbmc6IDQwIGtCICAgICBcbkRvd25sb2FkaW5nOiA0MCBrQiAgICAgXG5Eb3dubG9hZGluZzogNDAga0IgICAgIFxuRG93bmxvYWRpbmc6IDQ0IGtCICAgICBcbkRvd25sb2FkaW5nOiA0NCBrQiAgICAgXG5Eb3dubG9hZGluZzogNDgga0IgICAgIFxuRG93bmxvYWRpbmc6IDQ4IGtCICAgICBcbkRvd25sb2FkaW5nOiA1MiBrQiAgICAgXG5Eb3dubG9hZGluZzogNTIga0IgICAgIFxuRG93bmxvYWRpbmc6IDU2IGtCICAgICBcbkRvd25sb2FkaW5nOiA1NiBrQiAgICAgXG5Eb3dubG9hZGluZzogNjAga0IgICAgIFxuRG93bmxvYWRpbmc6IDYwIGtCICAgICBcbkRvd25sb2FkaW5nOiA2NCBrQiAgICAgXG5Eb3dubG9hZGluZzogNjQga0IgICAgIFxuRG93bmxvYWRpbmc6IDY4IGtCICAgICBcbkRvd25sb2FkaW5nOiA2OCBrQiAgICAgXG5Eb3dubG9hZGluZzogNzIga0IgICAgIFxuRG93bmxvYWRpbmc6IDcyIGtCICAgICBcbkRvd25sb2FkaW5nOiA3MyBrQiAgICAgXG5Eb3dubG9hZGluZzogNzMga0IgICAgIFxuRG93bmxvYWRpbmc6IDc2IGtCICAgICBcbkRvd25sb2FkaW5nOiA3NiBrQiAgICAgXG5Eb3dubG9hZGluZzogODAga0IgICAgIFxuRG93bmxvYWRpbmc6IDgwIGtCICAgICBcbkRvd25sb2FkaW5nOiA4NSBrQiAgICAgXG5Eb3dubG9hZGluZzogODUga0IgICAgIFxuRG93bmxvYWRpbmc6IDg5IGtCICAgICBcbkRvd25sb2FkaW5nOiA4OSBrQiAgICAgXG5Eb3dubG9hZGluZzogOTMga0IgICAgIFxuRG93bmxvYWRpbmc6IDkzIGtCICAgICBcbkRvd25sb2FkaW5nOiA5NyBrQiAgICAgXG5Eb3dubG9hZGluZzogOTcga0IgICAgIFxuRG93bmxvYWRpbmc6IDk3IGtCICAgICBcbkRvd25sb2FkaW5nOiA5NyBrQiAgICAgXG5Eb3dubG9hZGluZzogMTAwIGtCICAgICBcbkRvd25sb2FkaW5nOiAxMDAga0IgICAgIFxuRG93bmxvYWRpbmc6IDEwMCBrQiAgICAgXG5Eb3dubG9hZGluZzogMTAwIGtCICAgICBcbkRvd25sb2FkaW5nOiAxMTAga0IgICAgIFxuRG93bmxvYWRpbmc6IDExMCBrQiAgICAgXG5Eb3dubG9hZGluZzogMTEwIGtCICAgICBcbkRvd25sb2FkaW5nOiAxMTAga0IgICAgIFxuRG93bmxvYWRpbmc6IDExMCBrQiAgICAgXG5Eb3dubG9hZGluZzogMTEwIGtCICAgICBcbkRvd25sb2FkaW5nOiAxMjAga0IgICAgIFxuRG93bmxvYWRpbmc6IDEyMCBrQiAgICAgXG5Eb3dubG9hZGluZzogMTIwIGtCICAgICBcbkRvd25sb2FkaW5nOiAxMjAga0IgICAgIFxuRG93bmxvYWRpbmc6IDEzMCBrQiAgICAgXG5Eb3dubG9hZGluZzogMTMwIGtCICAgICBcbkRvd25sb2FkaW5nOiAxMzAga0IgICAgIFxuRG93bmxvYWRpbmc6IDEzMCBrQiAgICAgXG5Eb3dubG9hZGluZzogMTMwIGtCICAgICBcbkRvd25sb2FkaW5nOiAxMzAga0IgICAgIFxuRG93bmxvYWRpbmc6IDE0MCBrQiAgICAgXG5Eb3dubG9hZGluZzogMTQwIGtCICAgICBcbkRvd25sb2FkaW5nOiAxNDAga0IgICAgIFxuRG93bmxvYWRpbmc6IDE0MCBrQiAgICAgXG5Eb3dubG9hZGluZzogMTUwIGtCICAgICBcbkRvd25sb2FkaW5nOiAxNTAga0IgICAgIFxuRG93bmxvYWRpbmc6IDE2MCBrQiAgICAgXG5Eb3dubG9hZGluZzogMTYwIGtCICAgICBcbkRvd25sb2FkaW5nOiAxNjAga0IgICAgIFxuRG93bmxvYWRpbmc6IDE2MCBrQiAgICAgXG5Eb3dubG9hZGluZzogMTYwIGtCICAgICBcbkRvd25sb2FkaW5nOiAxNjAga0IgICAgIFxuIn0= -->
+<pre><code>
+Downloading: 3.6 kB     
+Downloading: 3.6 kB     
+Downloading: 7.6 kB     
+Downloading: 7.6 kB     
+Downloading: 12 kB     
+Downloading: 12 kB     
+Downloading: 16 kB     
+Downloading: 16 kB     
+Downloading: 20 kB     
+Downloading: 20 kB     
+Downloading: 24 kB     
+Downloading: 24 kB     
+Downloading: 28 kB     
+Downloading: 28 kB     
+Downloading: 32 kB     
+Downloading: 32 kB     
+Downloading: 36 kB     
+Downloading: 36 kB     
+Downloading: 37 kB     
+Downloading: 37 kB     
+Downloading: 40 kB     
+Downloading: 40 kB     
+Downloading: 40 kB     
+Downloading: 40 kB     
+Downloading: 44 kB     
+Downloading: 44 kB     
+Downloading: 48 kB     
+Downloading: 48 kB     
+Downloading: 52 kB     
+Downloading: 52 kB     
+Downloading: 56 kB     
+Downloading: 56 kB     
+Downloading: 60 kB     
+Downloading: 60 kB     
+Downloading: 64 kB     
+Downloading: 64 kB     
+Downloading: 68 kB     
+Downloading: 68 kB     
+Downloading: 72 kB     
+Downloading: 72 kB     
+Downloading: 73 kB     
+Downloading: 73 kB     
+Downloading: 76 kB     
+Downloading: 76 kB     
+Downloading: 80 kB     
+Downloading: 80 kB     
+Downloading: 85 kB     
+Downloading: 85 kB     
+Downloading: 89 kB     
+Downloading: 89 kB     
+Downloading: 93 kB     
+Downloading: 93 kB     
+Downloading: 97 kB     
+Downloading: 97 kB     
+Downloading: 97 kB     
+Downloading: 97 kB     
+Downloading: 100 kB     
+Downloading: 100 kB     
+Downloading: 100 kB     
+Downloading: 100 kB     
+Downloading: 110 kB     
+Downloading: 110 kB     
+Downloading: 110 kB     
+Downloading: 110 kB     
+Downloading: 110 kB     
+Downloading: 110 kB     
+Downloading: 120 kB     
+Downloading: 120 kB     
+Downloading: 120 kB     
+Downloading: 120 kB     
+Downloading: 130 kB     
+Downloading: 130 kB     
+Downloading: 130 kB     
+Downloading: 130 kB     
+Downloading: 130 kB     
+Downloading: 130 kB     
+Downloading: 140 kB     
+Downloading: 140 kB     
+Downloading: 140 kB     
+Downloading: 140 kB     
+Downloading: 150 kB     
+Downloading: 150 kB     
+Downloading: 160 kB     
+Downloading: 160 kB     
+Downloading: 160 kB     
+Downloading: 160 kB     
+Downloading: 160 kB     
+Downloading: 160 kB     </code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShzZilcbmNlbnMgPSBzdF93cml0ZShjZW5zdXNfZGF0YSwgXCIvVXNlcnMvc2hpdnl1Y2VsL0RvY3VtZW50cy9wcm9qZWN0cy5ub3N5bmMvVG9yb250b19IZWFsdGhfQWNjZXNzaWJpbGl0eS9kYXRhL2ltbV9wb3BfaW5jLmNzdlwiKVxuXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShzZilcbmNlbnMgPSBzdF93cml0ZShjZW5zdXNfZGF0YSwgXCIvVXNlcnMvc2hpdnl1Y2VsL0RvY3VtZW50cy9wcm9qZWN0cy5ub3N5bmMvb3Bpb2lkX2FjY2Vzc2liaWxpdHkvb3Bpb2lkX2FjY2Vzc2liaWxpdHkvZGF0YS90b3JvbnRvX2RhdGEvY2Vuc3VzX2RhdGEvREFfaW5jb21lLmNzdlwiKVxuYGBgIn0= -->
 <pre class="r"><code>library(sf)
-cens = st_write(census_data, &quot;/Users/shivyucel/Documents/projects.nosync/Toronto_Health_Accessibility/data/imm_pop_inc.csv&quot;)
-</code></pre>
+cens = st_write(census_data, &quot;/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/opioid_accessibility/data/toronto_data/census_data/DA_income.csv&quot;)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiV3JpdGluZyBsYXllciBgREFfaW5jb21lJyB0byBkYXRhIHNvdXJjZSBcbiAgYC9Vc2Vycy9zaGl2eXVjZWwvRG9jdW1lbnRzL3Byb2plY3RzLm5vc3luYy9vcGlvaWRfYWNjZXNzaWJpbGl0eS9vcGlvaWRfYWNjZXNzaWJpbGl0eS9kYXRhL3Rvcm9udG9fZGF0YS9jZW5zdXNfZGF0YS9EQV9pbmNvbWUuY3N2JyB1c2luZyBkcml2ZXIgYENTVidcbldyaXRpbmcgNzUyNSBmZWF0dXJlcyB3aXRoIDEzIGZpZWxkcyB3aXRob3V0IGdlb21ldHJpZXMuXG4ifQ== -->
+<pre><code>Writing layer `DA_income&#39; to data source 
+  `/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/opioid_accessibility/data/toronto_data/census_data/DA_income.csv&#39; using driver `CSV&#39;
+Writing 7525 features with 13 fields without geometries.</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
-</div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQpgYGB7cn0KCgoKbGlicmFyeSh0aWR5dmVyc2UpCmxpYnJhcnkoY2FuY2Vuc3VzKQpsaWJyYXJ5KHNwKQpsaWJyYXJ5KHJhc3RlcikKbGlicmFyeShyZ2RhbCkKbGlicmFyeShHSVNUb29scykKbGlicmFyeShyZ2RhbCkKbGlicmFyeShzZikKCnNldF9hcGlfa2V5KCdDZW5zdXNNYXBwZXJfYTU5YmQ5MjY2NDgzODgyN2UwYTBmNTYxYTU2MDYwMGYnLCBpbnN0YWxsID0gVFJVRSwgb3ZlcndyaXRlID0gVFJVRSkKb3B0aW9ucyhjYW5jZW5zdXMuY2FjaGVfcGF0aCA9ICIvVXNlcnMvc2hpdnl1Y2VsL0RvY3VtZW50cy9wcm9qZWN0cy5ub3N5bmMvUiBMZWFybmluZy9UcmFuc3BvcnRfQW5hbHlzZXMvY2FjaGUiKQoKCmBgYAoKIzEuIEFjY2VzcyBEQSBjZW5zdXMgc2hhcGVzIGFjcm9zcyBUb3JvbnRvIGFuZCBWYW5jb3V2ZXIgClRvcm9udG8gaGFzIHJlZ2lvbiBjb2RlIDM1NTM1LCBWYW5jb3V2ZXIgaGFzIHJlZ2lvbiBjb2RlIDU5OTMzCgpgYGB7cn0KbGlzdF9jZW5zdXNfcmVnaW9ucygnQ0ExNicpICU+JSAKICBmaWx0ZXIobGV2ZWwgPT0gIkNNQSIsIG5hbWUgJWluJSBjKCJWYW5jb3V2ZXIiLCJUb3JvbnRvIikpCmBgYAoKIyMjIEdldCBUb3JvbnRvIERBIHNoYXBlcwoKYGBge3J9Cgp0b3JvbnRvX0RBIDwtIGdldF9jZW5zdXMoZGF0YXNldD0nQ0ExNicsIHJlZ2lvbnM9bGlzdChDTUE9IjM1NTM1IiksCmxldmVsPSdEQScsIHVzZV9jYWNoZSA9IEZBTFNFLCBnZW9fZm9ybWF0ID0gJ3NmJywgcXVpZXQgPSBUUlVFKQoKYGBgCgoKIyMjIEdldCBWYW5jb3V2ZXIgU2hhcGUKCmBgYHtyfQoKdmFuY291dmVyX0RBIDwtIGdldF9jZW5zdXMoZGF0YXNldD0nQ0ExNicsIHJlZ2lvbnM9bGlzdChDTUE9IjU5OTMzIiksCmxldmVsPSdEQScsIHVzZV9jYWNoZSA9IEZBTFNFLCBnZW9fZm9ybWF0ID0gJ3NmJywgcXVpZXQgPSBUUlVFKQoKYGBgCgoKCiMxLiBBY2Nlc3MgQ1QgY2Vuc3VzIHNoYXBlcyBhY3Jvc3MgVG9yb250byBhbmQgVmFuY291dmVyIApUb3JvbnRvIGhhcyByZWdpb24gY29kZSAzNTUzNSwgVmFuY291dmVyIGhhcyByZWdpb24gY29kZSA1OTkzMwoKYGBge3J9Cmxpc3RfY2Vuc3VzX3JlZ2lvbnMoJ0NBMTYnKSAlPiUgCiAgZmlsdGVyKGxldmVsID09ICJDTUEiLCBuYW1lICVpbiUgYygiVmFuY291dmVyIiwiVG9yb250byIpKQpgYGAKCiMjIyBHZXQgVG9yb250byBDVCBzaGFwZXMKCmBgYHtyfQoKdG9yb250b19DVCA8LSBnZXRfY2Vuc3VzKGRhdGFzZXQ9J0NBMTYnLCByZWdpb25zPWxpc3QoQ01BPSIzNTUzNSIpLApsZXZlbD0nQ1QnLCB1c2VfY2FjaGUgPSBGQUxTRSwgZ2VvX2Zvcm1hdCA9ICdzZicsIHF1aWV0ID0gVFJVRSkKCmBgYAoKYGBge3J9CnN0X3dyaXRlKHRvcm9udG9fQ1QsICIvVXNlcnMvc2hpdnl1Y2VsL0RvY3VtZW50cy9wcm9qZWN0cy5ub3N5bmMvb3Bpb2lkX2FjY2Vzc2liaWxpdHkvcHJvamVjdC9wcm9qZWN0X2Rpci9kYXRhL3Rvcm9udG9fZGF0YS90b3JvbnRvX3NoYXBlcy9DVF9nZW9tZXRyaWVzL0NUX3NocC5zaHAiKQpgYGAKCiMjIyBHZXQgVmFuY291dmVyIENUIFNoYXBlCgpgYGB7cn0KCnZhbmNvdXZlcl9DVCA8LSBnZXRfY2Vuc3VzKGRhdGFzZXQ9J0NBMTYnLCByZWdpb25zPWxpc3QoQ01BPSI1OTkzMyIpLApsZXZlbD0nQ1QnLCB1c2VfY2FjaGUgPSBGQUxTRSwgZ2VvX2Zvcm1hdCA9ICdzZicsIHF1aWV0ID0gVFJVRSkKCmBgYAoKYGBge3J9CnN0X3dyaXRlKHRvcm9udG9fQ1QsICIvVXNlcnMvc2hpdnl1Y2VsL0RvY3VtZW50cy9wcm9qZWN0cy5ub3N5bmMvb3Bpb2lkX2FjY2Vzc2liaWxpdHkvcHJvamVjdC9wcm9qZWN0X2Rpci9kYXRhL3Rvcm9udG9fZGF0YS90b3JvbnRvX3NoYXBlcy9DVF9nZW9tZXRyaWVzL0NUX3NocC5zaHAiKQpgYGAKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCmBgYHtyfQp2YXJpYWJsZXMgPC0gbGlzdF9jZW5zdXNfdmVjdG9ycygiQ0ExNiIpCmBgYAoKCmBgYHtyfQojIFJldHVybnMgYSBkYXRhIGZyYW1lIHdpdGggZGF0YSBvbmx5CmNlbnN1c19kYXRhIDwtIGdldF9jZW5zdXMoZGF0YXNldD0nQ0ExNicsIHJlZ2lvbnM9bGlzdChDTUE9IjM1NTM1IiksCiAgICAgICAgICAgICAgICAgICAgICAgICAgdmVjdG9ycz1jKCJ2X0NBMTZfMzgzMSIsInZfQ0ExNl80MDEiLCJ2X0NBMTZfMjIxMyIpLAogICAgICAgICAgICAgICAgICAgICAgICAgIGxldmVsPSdEQScsIHVzZV9jYWNoZSA9IEZBTFNFKQoKYGBgCgoKYGBge3J9CmxpYnJhcnkoc2YpCmNlbnMgPSBzdF93cml0ZShjZW5zdXNfZGF0YSwgIi9Vc2Vycy9zaGl2eXVjZWwvRG9jdW1lbnRzL3Byb2plY3RzLm5vc3luYy9Ub3JvbnRvX0hlYWx0aF9BY2Nlc3NpYmlsaXR5L2RhdGEvaW1tX3BvcF9pbmMuY3N2IikKCmBgYAoK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQpgYGB7cn0KCgoKbGlicmFyeSh0aWR5dmVyc2UpCmxpYnJhcnkoY2FuY2Vuc3VzKQpsaWJyYXJ5KHNwKQpsaWJyYXJ5KHJhc3RlcikKbGlicmFyeShyZ2RhbCkKbGlicmFyeShHSVNUb29scykKbGlicmFyeShyZ2RhbCkKbGlicmFyeShzZikKCnNldF9hcGlfa2V5KCdDZW5zdXNNYXBwZXJfYTU5YmQ5MjY2NDgzODgyN2UwYTBmNTYxYTU2MDYwMGYnLCBpbnN0YWxsID0gVFJVRSwgb3ZlcndyaXRlID0gVFJVRSkKb3B0aW9ucyhjYW5jZW5zdXMuY2FjaGVfcGF0aCA9ICIvVXNlcnMvc2hpdnl1Y2VsL0RvY3VtZW50cy9wcm9qZWN0cy5ub3N5bmMvUiBMZWFybmluZy9UcmFuc3BvcnRfQW5hbHlzZXMvY2FjaGUiKQoKCmBgYAoKIzEuIEFjY2VzcyBEQSBjZW5zdXMgc2hhcGVzIGFjcm9zcyBUb3JvbnRvIGFuZCBWYW5jb3V2ZXIgClRvcm9udG8gaGFzIHJlZ2lvbiBjb2RlIDM1NTM1LCBWYW5jb3V2ZXIgaGFzIHJlZ2lvbiBjb2RlIDU5OTMzCgpgYGB7cn0KbGlzdF9jZW5zdXNfcmVnaW9ucygnQ0ExNicpICU+JSAKICBmaWx0ZXIobGV2ZWwgPT0gIkNNQSIsIG5hbWUgJWluJSBjKCJWYW5jb3V2ZXIiLCJUb3JvbnRvIikpCmBgYAoKIyMjIEdldCBUb3JvbnRvIERBIHNoYXBlcwoKYGBge3J9Cgp0b3JvbnRvX0RBIDwtIGdldF9jZW5zdXMoZGF0YXNldD0nQ0ExNicsIHJlZ2lvbnM9bGlzdChDTUE9IjM1NTM1IiksCmxldmVsPSdEQScsIHVzZV9jYWNoZSA9IEZBTFNFLCBnZW9fZm9ybWF0ID0gJ3NmJywgcXVpZXQgPSBUUlVFKQoKYGBgCgoKIyMjIEdldCBWYW5jb3V2ZXIgU2hhcGUKCmBgYHtyfQoKdmFuY291dmVyX0RBIDwtIGdldF9jZW5zdXMoZGF0YXNldD0nQ0ExNicsIHJlZ2lvbnM9bGlzdChDTUE9IjU5OTMzIiksCmxldmVsPSdEQScsIHVzZV9jYWNoZSA9IEZBTFNFLCBnZW9fZm9ybWF0ID0gJ3NmJywgcXVpZXQgPSBUUlVFKQoKYGBgCgoKCiMxLiBBY2Nlc3MgQ1QgY2Vuc3VzIHNoYXBlcyBhY3Jvc3MgVG9yb250byBhbmQgVmFuY291dmVyIApUb3JvbnRvIGhhcyByZWdpb24gY29kZSAzNTUzNSwgVmFuY291dmVyIGhhcyByZWdpb24gY29kZSA1OTkzMwoKYGBge3J9Cmxpc3RfY2Vuc3VzX3JlZ2lvbnMoJ0NBMTYnKSAlPiUgCiAgZmlsdGVyKGxldmVsID09ICJDTUEiLCBuYW1lICVpbiUgYygiVmFuY291dmVyIiwiVG9yb250byIpKQpgYGAKCiMjIyBHZXQgVG9yb250byBDVCBzaGFwZXMKCmBgYHtyfQoKdG9yb250b19DVCA8LSBnZXRfY2Vuc3VzKGRhdGFzZXQ9J0NBMTYnLCByZWdpb25zPWxpc3QoQ01BPSIzNTUzNSIpLApsZXZlbD0nQ1QnLCB1c2VfY2FjaGUgPSBGQUxTRSwgZ2VvX2Zvcm1hdCA9ICdzZicsIHF1aWV0ID0gVFJVRSkKCmBgYAoKYGBge3J9CnN0X3dyaXRlKHRvcm9udG9fQ1QsICIvVXNlcnMvc2hpdnl1Y2VsL0RvY3VtZW50cy9wcm9qZWN0cy5ub3N5bmMvb3Bpb2lkX2FjY2Vzc2liaWxpdHkvcHJvamVjdC9wcm9qZWN0X2Rpci9kYXRhL3Rvcm9udG9fZGF0YS90b3JvbnRvX3NoYXBlcy9DVF9nZW9tZXRyaWVzL0NUX3NocC5zaHAiKQpgYGAKCiMjIyBHZXQgVmFuY291dmVyIENUIFNoYXBlCgpgYGB7cn0KCnZhbmNvdXZlcl9DVCA8LSBnZXRfY2Vuc3VzKGRhdGFzZXQ9J0NBMTYnLCByZWdpb25zPWxpc3QoQ01BPSI1OTkzMyIpLApsZXZlbD0nQ1QnLCB1c2VfY2FjaGUgPSBGQUxTRSwgZ2VvX2Zvcm1hdCA9ICdzZicsIHF1aWV0ID0gVFJVRSkKCmBgYAoKYGBge3J9CnN0X3dyaXRlKHRvcm9udG9fQ1QsICIvVXNlcnMvc2hpdnl1Y2VsL0RvY3VtZW50cy9wcm9qZWN0cy5ub3N5bmMvb3Bpb2lkX2FjY2Vzc2liaWxpdHkvcHJvamVjdC9wcm9qZWN0X2Rpci9kYXRhL3Rvcm9udG9fZGF0YS90b3JvbnRvX3NoYXBlcy9DVF9nZW9tZXRyaWVzL0NUX3NocC5zaHAiKQpgYGAKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCmBgYHtyfQpsaWJyYXJ5KHRpZHl2ZXJzZSkKbGlicmFyeShjYW5jZW5zdXMpCmxpYnJhcnkoc3ApCmxpYnJhcnkocmFzdGVyKQpsaWJyYXJ5KHJnZGFsKQpsaWJyYXJ5KEdJU1Rvb2xzKQpsaWJyYXJ5KHJnZGFsKQpsaWJyYXJ5KHNmKQoKc2V0X2FwaV9rZXkoJ0NlbnN1c01hcHBlcl9hNTliZDkyNjY0ODM4ODI3ZTBhMGY1NjFhNTYwNjAwZicsIGluc3RhbGwgPSBUUlVFLCBvdmVyd3JpdGUgPSBUUlVFKQpvcHRpb25zKGNhbmNlbnN1cy5jYWNoZV9wYXRoID0gIi9Vc2Vycy9zaGl2eXVjZWwvRG9jdW1lbnRzL3Byb2plY3RzLm5vc3luYy9SIExlYXJuaW5nL1RyYW5zcG9ydF9BbmFseXNlcy9jYWNoZSIpCgoKYGBgCgojMS4gQWNjZXNzIGluY29tZSB2YXJpYWJsZXMgZm9yIFRvcm9udG8KCgoKYGBge3J9CnZhcmlhYmxlcyA8LSBsaXN0X2NlbnN1c192ZWN0b3JzKCJDQTE2IikKYGBgCgoKYGBge3J9CiMgUmV0dXJucyBhIGRhdGEgZnJhbWUgd2l0aCBkYXRhIG9ubHkKY2Vuc3VzX2RhdGEgPC0gZ2V0X2NlbnN1cyhkYXRhc2V0PSdDQTE2JywgcmVnaW9ucz1saXN0KENNQT0iMzU1MzUiKSwKICAgICAgICAgICAgICAgICAgICAgICAgICB2ZWN0b3JzPWMoInZfQ0ExNl80OTg2Iiwidl9DQTE2XzQwMSIpLAogICAgICAgICAgICAgICAgICAgICAgICAgIGxldmVsPSdEQScsIHVzZV9jYWNoZSA9IEZBTFNFKQoKYGBgCgoKYGBge3J9CmxpYnJhcnkoc2YpCmNlbnMgPSBzdF93cml0ZShjZW5zdXNfZGF0YSwgIi9Vc2Vycy9zaGl2eXVjZWwvRG9jdW1lbnRzL3Byb2plY3RzLm5vc3luYy9vcGlvaWRfYWNjZXNzaWJpbGl0eS9vcGlvaWRfYWNjZXNzaWJpbGl0eS9kYXRhL3Rvcm9udG9fZGF0YS9jZW5zdXNfZGF0YS9EQV9pbmNvbWUuY3N2IikKCmBgYAoK</div>
 
 
 

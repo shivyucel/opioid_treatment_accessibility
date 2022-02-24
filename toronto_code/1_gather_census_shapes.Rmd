@@ -114,6 +114,23 @@ st_write(toronto_CT, "/Users/shivyucel/Documents/projects.nosync/opioid_accessib
 
 
 
+```{r}
+library(tidyverse)
+library(cancensus)
+library(sp)
+library(raster)
+library(rgdal)
+library(GISTools)
+library(rgdal)
+library(sf)
+
+set_api_key('CensusMapper_a59bd92664838827e0a0f561a560600f', install = TRUE, overwrite = TRUE)
+options(cancensus.cache_path = "/Users/shivyucel/Documents/projects.nosync/R Learning/Transport_Analyses/cache")
+
+
+```
+
+#1. Access income variables for Toronto
 
 
 
@@ -125,7 +142,7 @@ variables <- list_census_vectors("CA16")
 ```{r}
 # Returns a data frame with data only
 census_data <- get_census(dataset='CA16', regions=list(CMA="35535"),
-                          vectors=c("v_CA16_3831","v_CA16_401","v_CA16_2213"),
+                          vectors=c("v_CA16_4986","v_CA16_401"),
                           level='DA', use_cache = FALSE)
 
 ```
@@ -133,7 +150,7 @@ census_data <- get_census(dataset='CA16', regions=list(CMA="35535"),
 
 ```{r}
 library(sf)
-cens = st_write(census_data, "/Users/shivyucel/Documents/projects.nosync/Toronto_Health_Accessibility/data/imm_pop_inc.csv")
+cens = st_write(census_data, "/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/opioid_accessibility/data/toronto_data/census_data/DA_income.csv")
 
 ```
 
