@@ -1,6 +1,0 @@
-"0","```r
-cens = st_write(ttm, \"data/ott_files/ott_times/transit.csv\")
-```"
-"1","Writing layer `transit' to data source `data/ott_files/ott_times/transit.csv' using driver `CSV'
-Writing 180 features with 3 fields without geometries.
-"
