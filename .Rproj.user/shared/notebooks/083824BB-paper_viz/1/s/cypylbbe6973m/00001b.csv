@@ -1,5 +1,0 @@
-"0","ggplot(data=hex_geom) + "
-"0","  geom_sf(aes(fill = pop, label='Population')) + "
-"0","  theme_minimal() + "
-"0","  scale_fill_gsea()"
-"2","Ignoring unknown aesthetics: label"

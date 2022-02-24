@@ -1,9 +1,0 @@
-"0","```r
-points <- st_read(\"data/ott_files/centroids/ott_points_v1.csv\")
-```"
-"1","Reading layer `ott_points_v1' from data source 
-  `/Users/shivyucel/Documents/projects.nosync/R Learning/Transport_Analyses/data/ott_files/centroids/ott_points_v1.csv' 
-  using driver `CSV'
-"
-"1","no simple feature geometries present: returning a data.frame or tbl_df
-"

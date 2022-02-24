@@ -1,7 +1,0 @@
-"0","```r
-
-
-ggplot(data=hex_geom) + 
-  geom_sf(aes(fill = weighted_I)) + 
-  scale_fill_viridis_c(option = \"A\", trans = 'reverse')
-```"

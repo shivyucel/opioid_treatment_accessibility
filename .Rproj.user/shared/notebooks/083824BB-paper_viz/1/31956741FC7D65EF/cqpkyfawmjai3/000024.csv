@@ -1,7 +1,0 @@
-"0","ggplot(data=hex_geom) + "
-"0","    annotation_map_tile(""cartolight"") +"
-"0","  geom_sf(aes(fill = pop)) + "
-"0","  theme_minimal() + "
-"0","scale_fill_material(""deep-purple"") + "
-"0","labs(fill = ""Population"") "
-"0",""
