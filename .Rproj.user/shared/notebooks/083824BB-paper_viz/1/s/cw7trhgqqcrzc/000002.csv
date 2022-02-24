@@ -1,0 +1,24 @@
+"0","```r
+weighted_delays <- read_csv('/Users/shivyucel/Documents/SDS_2021.nosync/SDS_2020-2021/SDS_Thesis/Data/paper_data/weighted_hexagon_data.csv')
+```"
+"1","Missing column names filled in: 'X1' [1]
+── Column specification ──────────────────────────────────────────────────────────────────────────
+cols(
+  X1 = col_double(),
+  h3_id = col_character(),
+  income = col_double(),
+  in_degree = col_double(),
+  numeric_id = col_double(),
+  weighted_ID = col_double(),
+  income_quartile = col_double(),
+  in_degree_quartile = col_double(),
+  pop = col_double()
+)
+"
+"0","```r
+weighted_delays$income_quartile = as.factor(weighted_delays$income_quartile)
+weighted_delays$in_degree_quartile = as.factor(weighted_delays$in_degree_quartile)
+
+
+
+```"

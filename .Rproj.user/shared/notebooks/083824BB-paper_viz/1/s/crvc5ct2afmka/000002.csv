@@ -1,0 +1,16 @@
+"0","```r
+
+income_quartiles <- c(
+                    `1` = \"Income Quartile 1\",
+                    `2` = \"Income Quartile 2\",
+                    `3` = \"Income Quartile 3\",
+                    `4` = \"Income Quartile 4l\"
+                    )
+
+ggplot(data=outbreak_split) + 
+  geom_boxplot(mapping = aes(x=in_degree_quartile, y=infection_delay, fill = outbreak_centrality)) + 
+  facet_wrap(~income_quartile, nrow=1, labeller = as_labeller(indegree_quartiles)) + 
+  xlab(\"In-Degree Quartile\") + 
+  ylab(\"Weighted Infection Delay\") +
+  scale_fill_discrete(name = \"\")
+```"

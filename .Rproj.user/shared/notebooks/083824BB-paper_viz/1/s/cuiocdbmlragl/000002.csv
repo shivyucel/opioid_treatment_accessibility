@@ -1,0 +1,9 @@
+"0","```r
+ggplot(weighted_delays, aes(x = in_degree)) + 
+  geom_histogram(fill='lightblue', color='black') + 
+  xlim(c(0, max(weighted_delays$in_degree))) + 
+  ylab('Count') + 
+  xlab('In-Degree Centrality') + 
+  theme(axis.title = element_text(size = 20)) + 
+  theme(axis.text = element_text(size = 15))
+```"

@@ -1,0 +1,15 @@
+"0","```r
+indegree_quartiles <- c(
+                    `1` = \"In-Degree Quartile 1\",
+                    `2` = \"In-Degree Quartile 2\",
+                    `3` = \"In-Degree Quartile 3\",
+                    `4` = \"In-Degree Quartile 4\"
+                    )
+
+ggplot(data=weighted_delays) + 
+  geom_boxplot(mapping=aes(x=income_quartile, y=weighted_ID, group=income_quartile, color = income_quartile)) + 
+  facet_wrap(~in_degree_quartile, nrow=1, labeller = as_labeller(indegree_quartiles)) + 
+  xlab(\"Income Quartile\") + 
+  ylab(\"Weighted Infection Delay\") + 
+  theme(legend.position=\"none\")
+```"

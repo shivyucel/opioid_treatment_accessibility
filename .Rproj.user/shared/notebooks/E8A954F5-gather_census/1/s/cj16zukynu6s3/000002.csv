@@ -1,0 +1,110 @@
+"0",""
+"0",""
+"0",""
+"0","library(tidyverse)"
+"2","Registered S3 methods overwritten by 'dbplyr':
+  method         from
+  print.tbl_lazy     
+  print.tbl_sql      
+"
+"2","[30m── [1mAttaching packages[22m ───────────────────────────────────────────────────────────── tidyverse 1.3.0 ──[39m
+"
+"2","[30m[32m✓[30m [34mggplot2[30m 3.3.3     [32m✓[30m [34mpurrr  [30m 0.3.4
+[32m✓[30m [34mtibble [30m 3.0.5     [32m✓[30m [34mdplyr  [30m 1.0.3
+[32m✓[30m [34mtidyr  [30m 1.1.2     [32m✓[30m [34mstringr[30m 1.4.0
+[32m✓[30m [34mreadr  [30m 1.4.0     [32m✓[30m [34mforcats[30m 0.5.0[39m
+"
+"2","[30m── [1mConflicts[22m ──────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+[31mx[30m [34mdplyr[30m::[32mfilter()[30m masks [34mstats[30m::filter()
+[31mx[30m [34mdplyr[30m::[32mlag()[30m    masks [34mstats[30m::lag()[39m
+"
+"0","library(cancensus)"
+"2","Census data is currently stored temporarily.
+
+ In order to speed up performance, reduce API quota usage, and reduce unnecessary network calls, please set up a persistent cache directory by setting the environment variable CM_CACHE_PATH= '<path to cancensus cache directory>' or  setting options(cancensus.cache_path = '<path to cancensus cache directory>')
+
+ You may add this environment varianble to your .Renviron or add this option, together with your API key, to your .Rprofile.
+
+
+"
+"0","library(sp)"
+"0","library(raster)"
+"2","
+Attaching package: ‘raster’
+
+"
+"2","The following object is masked from ‘package:dplyr’:
+
+    select
+
+"
+"2","The following object is masked from ‘package:tidyr’:
+
+    extract
+
+"
+"0","library(rgdal)"
+"2","Please note that rgdal will be retired by the end of 2023,
+plan transition to sf/stars/terra functions using GDAL and PROJ
+at your earliest convenience.
+
+rgdal: version: 1.5-28, (SVN revision 1158)
+Geospatial Data Abstraction Library extensions to R successfully loaded
+Loaded GDAL runtime: GDAL 3.2.1, released 2020/12/29
+Path to GDAL shared files: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/gdal
+GDAL binary built with GEOS: TRUE 
+Loaded PROJ runtime: Rel. 7.2.1, January 1st, 2021, [PJ_VERSION: 721]
+Path to PROJ shared files: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/proj
+PROJ CDN enabled: FALSE
+Linking to sp version:1.4-6
+To mute warnings of possible GDAL/OSR exportToProj4() degradation,
+use options(""rgdal_show_exportToProj4_warnings""=""none"") before loading sp or rgdal.
+Overwritten PROJ_LIB was /Library/Frameworks/R.framework/Versions/4.0/Resources/library/rgdal/proj
+"
+"0","library(GISTools)"
+"2","Loading required package: maptools
+"
+"2","Checking rgeos availability: TRUE
+Please note that 'maptools' will be retired by the end of 2023,
+plan transition at your earliest convenience;
+some functionality will be moved to 'sp'.
+"
+"2","Loading required package: RColorBrewer
+"
+"2","Loading required package: MASS
+"
+"2","
+Attaching package: ‘MASS’
+
+"
+"2","The following objects are masked from ‘package:raster’:
+
+    area, select
+
+"
+"2","The following object is masked from ‘package:dplyr’:
+
+    select
+
+"
+"2","Loading required package: rgeos
+"
+"2","rgeos version: 0.5-9, (SVN revision 684)
+ GEOS runtime version: 3.8.1-CAPI-1.13.3 
+ Please note that rgeos will be retired by the end of 2023,
+plan transition to sf functions using GEOS at your earliest convenience.
+ Linking to sp version: 1.4-6 
+ Polygon checking: TRUE 
+
+"
+"0","library(rgdal)"
+"0",""
+"0","set_api_key('CensusMapper_a59bd92664838827e0a0f561a560600f', install = TRUE, overwrite = TRUE)"
+"2","Adding key to your .Renviron file. Your original .Renviron will be backed up and stored in your R HOME directory if needed.
+"
+"2","Your API key has been stored in your .Renviron and can be accessed by Sys.getenv(""CM_API_KEY""). 
+To use now, restart R or run `readRenviron(""~/.Renviron"")`
+"
+"0","options(cancensus.cache_path = ""/Users/shivyucel/Documents/projects.nosync/R Learning/Transport_Analyses/cache"")"
+"0",""
+"0",""

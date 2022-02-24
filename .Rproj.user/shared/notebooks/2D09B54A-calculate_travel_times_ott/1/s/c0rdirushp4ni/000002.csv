@@ -1,0 +1,5 @@
+"0","```r
+points$lon <- as.numeric(as.character(points$lon))
+points$lat <- as.numeric(as.character(points$lat))
+
+```"

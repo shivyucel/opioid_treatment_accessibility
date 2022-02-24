@@ -1,0 +1,6 @@
+"0","```r
+ggplot(data = select(time_saved, X1, '123')) + 
+  geom_line(mapping = aes(x=X1, y=time_saved$'123')) + 
+  xlab('Time (t) in Days') + 
+  ylab('Infection Delay of Lockdown at Time t')
+```"

@@ -1,0 +1,11 @@
+"0","```r
+
+ggplot(data=weighted_delays) + 
+  geom_boxplot(mapping=aes(x=income_quartile, y=weighted_ID, group=income_quartile, color = income_quartile)) + 
+  facet_wrap(~in_degree_quartile, nrow=1, labeller = as_labeller(indegree_quartiles)) + 
+  xlab(\"Income Quartile\") + 
+  ylab(\"Weighted Infection Delay\") + 
+  theme(legend.position=\"none\")
+
+
+```"

@@ -1,0 +1,117 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(r5r)
+library(sf)
+library(r5r)
+library(sf)
+library(data.table)
+library(ggplot2)
+
+options(java.parameters = "-Xmx2G")
+
+#OSM from BBBike
+#GTFS from transitfeeds.com
+r5r_core <- setup_r5(data_path =  '/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/project/project_dir/data/toronto_data/2020_routing/r5r_core', verbose = FALSE)
+```
+
+
+```{r}
+DA_centroids <- st_read("/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/project/project_dir/data/toronto_data/toronto_shapes/DA_centroids/DA_centroids.csv")
+
+DA_centroids$lon <- as.numeric(as.character(DA_centroids$lon))
+DA_centroids$lat <- as.numeric(as.character(DA_centroids$lat))
+
+```
+
+
+
+
+```{r}
+clinic_points = st_read("/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/project/project_dir/data/clinic_data/toronto/clinics_for_routing/clinics_for_routing.csv")
+
+clinic_points$lon <- as.numeric(as.character(clinic_points$lon))
+clinic_points$lat <- as.numeric(as.character(clinic_points$lat))
+```
+
+
+```{r}
+# set inputs
+mode <- c("WALK", "TRANSIT")
+max_walk_dist <- 10000
+max_trip_duration <- 10000
+departure_time<- as.POSIXct("24-06-2020 9:00:00", format = "%d-%m-%Y %H:%M:%S")
+
+# calculate a travel time matrix
+ttm900 <- travel_time_matrix(r5r_core = r5r_core,
+                          origins = DA_centroids,
+                          destinations = clinic_points,
+                          departure_datetime = departure_time,
+                          mode = mode,
+                          max_rides = 10,
+                          max_walk_dist = 10000,
+                          verbose = FALSE)
+
+ccm
+```
+
+
+```{r}
+cens = st_write(ttm900, "/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/project/project_dir/data/toronto_data/2020_routing/travel_times/2020/24_06_2020_900.csv")
+
+```
+
+```{r}
+# set inputs
+mode <- c("WALK", "TRANSIT")
+max_walk_dist <- 10000
+max_trip_duration <- 10000
+departure_time<- as.POSIXct("24-06-2020 12:00:00", format = "%d-%m-%Y %H:%M:%S")
+
+# calculate a travel time matrix
+ttm1200 <- travel_time_matrix(r5r_core = r5r_core,
+                          origins = DA_centroids,
+                          destinations = clinic_points,
+                          departure_datetime = departure_time,
+                          mode = mode,
+                          max_rides = 10,
+                          max_walk_dist = 10000,
+                          verbose = FALSE)
+
+ttm1200
+```
+
+
+```{r}
+cens = st_write(ttm1200, "/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/project/project_dir/data/toronto_data/2020_routing/travel_times/24_06_2020_1200.csv")
+
+```
+
+```{r}
+# set inputs
+mode <- c("WALK", "TRANSIT")
+max_walk_dist <- 10000
+max_trip_duration <- 10000
+departure_time<- as.POSIXct("24-06-2020 14:00:00", format = "%d-%m-%Y %H:%M:%S")
+
+# calculate a travel time matrix
+ttm1400 <- travel_time_matrix(r5r_core = r5r_core,
+                          origins = DA_centroids,
+                          destinations = clinic_points,
+                          departure_datetime = departure_time,
+                          mode = mode,
+                          max_rides = 10,
+                          max_walk_dist = 10000,
+                          verbose = FALSE)
+
+ccm
+```
+
+
+```{r}
+cens = st_write(ttm1400, "/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/project/project_dir/data/toronto_data/2020_routing/travel_times/24_06_2020_1400.csv")
+
+```

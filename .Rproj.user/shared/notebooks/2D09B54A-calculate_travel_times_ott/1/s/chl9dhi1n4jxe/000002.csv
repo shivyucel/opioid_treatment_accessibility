@@ -1,0 +1,12 @@
+"0","```r
+library(r5r)
+library(sf)
+library(r5r)
+library(sf)
+library(data.table)
+library(ggplot2)
+
+options(java.parameters = \"-Xmx2G\")
+
+r5r_core <- setup_r5(data_path =  '/Users/shivyucel/Documents/projects.nosync/R Learning/Transport_Analyses/data/ott_files/rcore', verbose = TRUE)
+```"
