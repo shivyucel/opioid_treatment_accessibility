@@ -147,10 +147,38 @@ census_data <- get_census(dataset='CA16', regions=list(CMA="35535"),
 
 ```
 
-
 ```{r}
 library(sf)
 cens = st_write(census_data, "/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/opioid_accessibility/data/toronto_data/census_data/DA_income.csv")
 
 ```
+
+
+## Access Age Variables for Toronto
+
+
+```{r}
+
+#1. Access income variables for Toronto
+
+
+
+```{r}
+variables <- list_census_vectors("CA16")
+```
+
+
+```{r}
+# Returns a data frame with data only
+census_data <- get_census(dataset='CA16', regions=list(CMA="35535"),
+                          vectors=c("v_CA16_379","v_CA16_3636"),
+                          level='DA', use_cache = FALSE)
+
+```
+```{r}
+library(sf)
+cens = st_write(census_data, "/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/opioid_accessibility/data/toronto_data/census_data/age_newcomer.csv")
+
+```
+
 

@@ -37,7 +37,7 @@ DA_centroids$lat <- as.numeric(as.character(DA_centroids$lat))
 ![]()
 
 ```{r}
-clinic_points = st_read("/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/opioid_accessibility/data/toronto_data/clinics_for_routing/clinics_for_routing_v2.csv")
+clinic_points = st_read("/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/opioid_accessibility/data/toronto_data/clinics_for_routing/clinics_for_routing_v3.csv")
 
 clinic_points$lon <- as.numeric(as.character(clinic_points$lon))
 clinic_points$lat <- as.numeric(as.character(clinic_points$lat))
@@ -72,7 +72,7 @@ ttm0900_2 <- travel_time_matrix(r5r_core = r5r_core,
 
 
 ```{r}
-cens = st_write(ttm0900, "/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/opioid_accessibility/data/toronto_data/2019_region_routing/data/travel_times/19_06_2019_0900_2.csv")
+cens = st_write(ttm0900_2, "/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/opioid_accessibility/data/toronto_data/2019_region_routing/data/travel_times/19_06_2019_0900_3.csv")
 
 ```
 
@@ -101,7 +101,7 @@ ttm1200 <- travel_time_matrix(r5r_core = r5r_core,
 
 
 ```{r}
-cens = st_write(ttm1200, "/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/opioid_accessibility/data/toronto_data/2019_region_routing/data/travel_times/19_06_2019_1100_2.csv")
+cens = st_write(ttm1200, "/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/opioid_accessibility/data/toronto_data/2019_region_routing/data/travel_times/19_06_2019_1100_3.csv")
 
 ```
 
@@ -127,8 +127,10 @@ ttm1500 <- travel_time_matrix(r5r_core = r5r_core,
 
 ```
 
+
+
 ```{r}
-cens = st_write(ttm1500, "/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/opioid_accessibility/data/toronto_data/2019_region_routing/data/travel_times/19_06_2019_1500_2.csv")
+cens = st_write(ttm1500, "/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/opioid_accessibility/data/toronto_data/2019_region_routing/data/travel_times/19_06_2019_1500_3.csv")
 ```
 
 
@@ -147,7 +149,7 @@ ttm0900_sat <- travel_time_matrix(r5r_core = r5r_core,
                           mode = mode,
                           max_rides = 10,
                           max_walk_dist = max_walk_dist,
-                          max_trip_duration = max_trip_duration,
+                          max_trip_duration = max_trip_duration, 
                           time_window = 60,
                           verbose = FALSE)
 
@@ -156,6 +158,6 @@ ttm0900_sat <- travel_time_matrix(r5r_core = r5r_core,
 
 
 ```{r}
-cens = st_write(ttm0900_sat, "/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/opioid_accessibility/data/toronto_data/2019_region_routing/data/travel_times/22_06_2019_0900_2.csv")
+cens = st_write(ttm0900_sat, "/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/opioid_accessibility/data/toronto_data/2019_region_routing/data/travel_times/22_06_2019_0900_3.csv")
 ```
 
