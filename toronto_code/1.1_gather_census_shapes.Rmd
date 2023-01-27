@@ -1,0 +1,184 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+```{r}
+
+
+
+library(tidyverse)
+library(cancensus)
+library(sp)
+library(raster)
+library(rgdal)
+library(GISTools)
+library(rgdal)
+library(sf)
+
+set_api_key('CensusMapper_a59bd92664838827e0a0f561a560600f', install = TRUE, overwrite = TRUE)
+options(cancensus.cache_path = "/Users/shivyucel/Documents/projects.nosync/R Learning/Transport_Analyses/cache")
+
+
+```
+
+#1. Access DA census shapes across Toronto and Vancouver 
+Toronto has region code 35535, Vancouver has region code 59933
+
+```{r}
+list_census_regions('CA16') %>% 
+  filter(level == "CMA", name %in% c("Vancouver","Toronto"))
+```
+
+### Get Toronto DA shapes
+
+```{r}
+
+toronto_DA <- get_census(dataset='CA16', regions=list(CMA="35535"),
+level='DA', use_cache = FALSE, geo_format = 'sf', quiet = TRUE)
+
+```
+
+
+### Get Vancouver Shape
+
+```{r}
+
+vancouver_DA <- get_census(dataset='CA16', regions=list(CMA="59933"),
+level='DA', use_cache = FALSE, geo_format = 'sf', quiet = TRUE)
+
+```
+
+
+
+#1. Access CT census shapes across Toronto and Vancouver 
+Toronto has region code 35535, Vancouver has region code 59933
+
+```{r}
+list_census_regions('CA16') %>% 
+  filter(level == "CMA", name %in% c("Vancouver","Toronto"))
+```
+
+### Get Toronto CT shapes
+
+```{r}
+
+toronto_CT <- get_census(dataset='CA16', regions=list(CMA="35535"),
+level='CT', use_cache = FALSE, geo_format = 'sf', quiet = TRUE)
+
+```
+
+```{r}
+st_write(toronto_CT, "/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/project/project_dir/data/toronto_data/toronto_shapes/CT_geometries/CT_shp.shp")
+```
+
+### Get Vancouver CT Shape
+
+```{r}
+
+vancouver_CT <- get_census(dataset='CA16', regions=list(CMA="59933"),
+level='CT', use_cache = FALSE, geo_format = 'sf', quiet = TRUE)
+
+```
+
+```{r}
+st_write(toronto_CT, "/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/project/project_dir/data/toronto_data/toronto_shapes/CT_geometries/CT_shp.shp")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```{r}
+library(tidyverse)
+library(cancensus)
+library(sp)
+library(raster)
+library(rgdal)
+library(GISTools)
+library(rgdal)
+library(sf)
+
+set_api_key('CensusMapper_a59bd92664838827e0a0f561a560600f', install = TRUE, overwrite = TRUE)
+options(cancensus.cache_path = "/Users/shivyucel/Documents/projects.nosync/R Learning/Transport_Analyses/cache")
+
+
+```
+
+#1. Access income variables for Toronto
+
+
+
+```{r}
+variables <- list_census_vectors("CA16")
+```
+
+
+```{r}
+# Returns a data frame with data only
+census_data <- get_census(dataset='CA16', regions=list(CMA="35535"),
+                          vectors=c("v_CA16_4986","v_CA16_401"),
+                          level='DA', use_cache = FALSE)
+
+```
+
+```{r}
+library(sf)
+cens = st_write(census_data, "/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/opioid_accessibility/data/toronto_data/census_data/DA_income.csv")
+
+```
+
+
+## Access Age Variables for Toronto
+
+
+```{r}
+
+#1. Access income variables for Toronto
+
+
+
+```{r}
+variables <- list_census_vectors("CA16")
+```
+
+
+```{r}
+# Returns a data frame with data only
+census_data <- get_census(dataset='CA16', regions=list(CMA="35535"),
+                          vectors=c("v_CA16_379","v_CA16_3636"),
+                          level='DA', use_cache = FALSE)
+
+```
+```{r}
+library(sf)
+cens = st_write(census_data, "/Users/shivyucel/Documents/projects.nosync/opioid_accessibility/opioid_accessibility/data/toronto_data/census_data/age_newcomer.csv")
+
+```
+
+
